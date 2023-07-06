@@ -29,9 +29,10 @@ def simulate(state, option):
     throughputs = np.cumsum(np.append(throughput, throughput_increases))
 
     # Add cost penalty for high throughput increase
-    costs[throughput_increases > 0.1] += state.cost_penalty
+    costs[1:][throughput_increases > 0.1] += state.cost_penalty
 
     return costs, throughputs
+
 
 # Function to plot data
 def plot_fig(df, title):
