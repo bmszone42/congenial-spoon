@@ -1,3 +1,5 @@
 time
 pandas
 streamlit
+plotly
+base64
