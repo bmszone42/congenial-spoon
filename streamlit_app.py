@@ -63,7 +63,13 @@ def handle_sidebar(state):
         state.config[new_option] = {'cost': 10000, 'throughput': 1000}
 
     if st.sidebar.button("Reset"):
-        state = _SessionState(config)
+        for option in state.config:
+            state.config[option]['cost'] = 10000
+            state.config[option]['throughput'] = 1000
+        state.num_iterations = 100
+        state.min_increase = -0.1
+        state.max_increase = 0.1
+        state.cost_penalty = 1000
 
     return options_to_simulate
 
